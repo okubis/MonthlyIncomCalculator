@@ -20,7 +20,7 @@ object Texts {
     Array(
       "Chtěl bych vidět své zisky.",
       "Rád bych viděl jak se dařilo mému panství.",
-      "Předlož mi své účty správče, chi vidět jak jsi rozmnožil mé jmění.",
+      "Předlož mi své účty správče, chci vidět jak jsi rozmnožil mé jmění.",
       "Přines mi měšec s mým ziskem."
     )
 
@@ -63,7 +63,7 @@ object Texts {
 
   val adminChoiceIntro:Array[String] = Array(
     "Komu ze svých správců tyto statky svěříte? Či snad máte na mysli někoho nového?",
-    "Přivedete mi nějakého pomocníka, který bude o tento majetek pečovat, nebo jej svěříte někomu kdo se již osvědčil?"
+    "Přivedete mi nějakého pomocníka, který bude o tento majetek pečovat, nebo jej svěříte někomu, kdo se již osvědčil?"
      )
 
 }
