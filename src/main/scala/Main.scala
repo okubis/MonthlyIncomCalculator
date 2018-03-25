@@ -1,4 +1,5 @@
 import java.io.{BufferedWriter, File, FileWriter}
+import java.nio.charset.Charset
 
 import scala.io.Source
 import util._
@@ -74,6 +75,10 @@ object Main {
         println(randomText(wrongAnswerTxts))
         mainMenuReactions(loadAnswer())
     }
+  }
+
+  def loadEstateInput():Unit = {
+
   }
 
   private def multichoice[R](intro:Array[String])(choices:List[Array[String]])(reactions:Int => R): R = {
