@@ -90,8 +90,8 @@ package object util {
     def isName(s:String) = s forall Character.isLetter
     def isAnExistingAdmin(x: String) = (x forall Character.isDigit) && x.toInt >= 0 && x.toInt < dictionary.length
     choice match {
+      case s if s.length == 0 || (!isAnExistingAdmin(s) && !isName(s)) => dictionaryChoice(dictionary)({println(randomText(wrongInput));readInput()})
       case s if isAnExistingAdmin(s) => dictionary(choice.toInt)
-      case s if s.length == 0 || !isName(s) => dictionaryChoice(dictionary)({println(randomText(wrongInput));readInput()})
       case _ => choice
     }
   }
