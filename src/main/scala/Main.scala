@@ -20,6 +20,7 @@ object Main {
     println(Separator)
     for(i <- 1 to 10000){
       mainMenu()
+      estate = dataFileManager.loadEstate
     }
     println(randomText(farewells))
   }

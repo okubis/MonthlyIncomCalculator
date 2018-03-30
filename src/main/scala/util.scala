@@ -28,7 +28,7 @@ package object util {
   def roll(dice:Int):Int = {
     val n =
     dice match {
-      case Four | Six | Eight | Ten | Twelve | Twenty|Hundred => dice
+      case Four | Six | Eight | Ten | Twelve | Twenty |Hundred => dice
       case _ => throw new UndefinedDiceType(s"Undefined dice type, hase to be one from: $Four,$Six,$Eight,$Ten,$Twelve,$Twenty,$Hundred")
     }
     rollNdice(n)
@@ -52,6 +52,8 @@ package object util {
     val ss = Array.fill((textLength -l) max 0)(" ").mkString("")
     s + ss
   }
+
+  def separate():Unit = {println();println(Separator)}
 
   def endSubdialog():Unit = {
     println(DoubleSeparator)
@@ -77,13 +79,19 @@ package object util {
 
   def readAnswer: Int = try{readInput().toInt}catch{case _ => Int.MaxValue}
   def readString: String =  readInput()
+  def readDouble: Double = try{readInput().toDouble}catch{case _ => Double.MaxValue}
+  def readBoolean:Boolean = {println(" zadej [ ano / ne ]"); val r = readString.toLowerCase; if (r == "ano") true else if (r == "ne") false else readBoolean}
+  def readDice: Int = {
+    println(s" zadej [ $Four / $Six / $Eight / $Ten / $Twelve / $Twenty / $Hundred ]")
+    val r = readAnswer
+    r match {case Four | Six | Eight | Ten | Twelve | Twenty |Hundred => r; case _ => readDice }}
 
   def dictionaryChoice(dictionary: List[String])(choice:String):String = {
     def isName(s:String) = s forall Character.isLetter
     def isAnExistingAdmin(x: String) = (x forall Character.isDigit) && x.toInt >= 0 && x.toInt < dictionary.length
     choice match {
-      case s if s.length == 0 || !isName(s) => dictionaryChoice(dictionary)({println(randomText(wrongInput));readInput()})
       case s if isAnExistingAdmin(s) => dictionary(choice.toInt)
+      case s if s.length == 0 || !isName(s) => dictionaryChoice(dictionary)({println(randomText(wrongInput));readInput()})
       case _ => choice
     }
   }

@@ -53,7 +53,7 @@ object DataParser{
     def baseIncomePerUnitPerMonth: Double = line(3).toDouble
     def dice: Int = line(4).toInt
     def numberOfRolls: Int = line(5).toInt
-    def const:Double = line(6).toInt
+    def const:Double = line(6).toDouble
     def incomeIsPercentual:Boolean = line(7).toBoolean
     def admin:String = line(8)
     def note:String = line(9)
