@@ -15,7 +15,7 @@ object Texts {
     )
   )
 
-  val prolongations:Array[String] = modifyCharset(
+  val wasteOp:Array[String] = modifyCharset(
     Array(
       "Nevyužité a proto nepoužitelné",
       "Nikam nevede",
@@ -24,7 +24,7 @@ object Texts {
     )
   )
 
-  val computeIncome:Array[String] = modifyCharset(
+  val computeIncomeIntro:Array[String] = modifyCharset(
     Array(
       "Chtěl bych vidět své zisky.",
       "Rád bych viděl jak se dařilo mému panství.",
@@ -33,7 +33,7 @@ object Texts {
     )
   )
 
-  val addEstateTxts:Array[String] = modifyCharset(
+  val addEstateIntro:Array[String] = modifyCharset(
     Array(
       "Podařilo se rozmnožit své jmění, přines brk a kalamář a zapiš to do účetních knih.",
       "Mám pro tebe novou práci, podařilo se mi rozmnožit své statky.",
@@ -41,21 +41,28 @@ object Texts {
     )
   )
 
-  val removeEstate:Array[String] = modifyCharset(
+  val modifyEstateIntro:Array[String] = modifyCharset(
+    Array(
+      "Informace o některé z mých nemovitostí se změninily, přines účtní knihy a přepiš to.",
+      "Musím upravit nesrovnalost v účetních knihách, některé údaje jsou špatně zaznamenány"
+    )
+  )
+
+  val removeEstateIntro:Array[String] = modifyCharset(
     Array(
       "Žel musím vyškrtnou část svého majetku z evidence.",
       "Tvá práce se ti ulehčí, žel budu muset odepsat část svého majetku, který spravuješ."
     )
   )
 
-  val exitTxts:Array[String] = modifyCharset(
+  val exitOp:Array[String] = modifyCharset(
     Array(
       "Dnes nic nepotřebuji, chvátám na výpravu.",
       "Musím už jít, zatím se dál dobře starej o mé statky.",
     )
   )
 
-  val wrongAnswerTxts:Array[String] = modifyCharset(
+  val wrongAnswers:Array[String] = modifyCharset(
     Array(
       "Obávám se Pane, že vaše odpověd není správná.",
       "Asi jsem Vás přeslechl,mohl byste to prosím zopakovat?",
@@ -75,7 +82,9 @@ object Texts {
   val wrongInput:Array[String] = modifyCharset(
     Array(
       "Jste mistrem vtipu, pane.",
-      "Vidím, že dnes máte žertovnou náladu sire, ale raději bych záleřitosti vyřídil rychle."
+      "Vidím, že dnes máte žertovnou náladu sire, ale raději bych záleřitosti vyřídil rychle.",
+      "Ano, Excelence, to je jistě zajímavé, byť to tak zcela nesouvisí s tématem naší konverzace.",
+      "Myslím, že tímto bych se vzhledem ke své pozici neměl zaneprazdňovat"
     )
   )
 
@@ -84,5 +93,14 @@ object Texts {
       "Komu ze svých správců tyto statky svěříte? Či snad máte na mysli někoho nového?",
       "Přivedete mi nějakého pomocníka, který bude o tento majetek pečovat, nebo jej svěříte někomu, kdo se již osvědčil?"
     )
+  )
+
+  val adminChoiceNewGuy:Array[String] = modifyCharset(
+    Array(
+      "Představím ti nového pomocníka.",
+      "Mám na mysli někoho jiného.",
+      "Tvůj nový pomocník se o to postará.",
+      "Zde ti představým svého nového poddaného, který bude tento majetek spravovat."
+    ).map(_ + " (zadám jméno místo čísla volby)")
   )
 }
