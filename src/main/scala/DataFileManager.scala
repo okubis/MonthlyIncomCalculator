@@ -10,6 +10,8 @@ case class DataFileManager(path: String) {
     val fw = new FileWriter(path,true)
     try {
       fw.write(data)
+    }catch {
+      case e:Exception => Console.err.print(e.getMessage)
     }
     finally fw.close()
   }
@@ -27,7 +29,7 @@ case class DataFileManager(path: String) {
 
   private def transform(it:Iterator[Array[String]]):List[Property] = {
     import DataParser.DataLine
-    it.filter(_.isEmpty).map{
+    it.filter(_.nonEmpty).filter(_.length >= 9).map{
       d: Array[String] =>
         Property(d.what,d.where,d.amount,d.baseIncomePerUnitPerMonth,d.dice,d.numberOfRolls,d.const,d.incomeIsPercentual,d.admin,d.note)
     }.toList

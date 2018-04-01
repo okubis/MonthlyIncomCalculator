@@ -55,6 +55,14 @@ object Texts {
     )
   )
 
+  val listEstateIntro:Array[String] = modifyCharset(
+    Array(
+      "Chci vidět soupis svého jmění",
+      "Přines mi rejstřík mého majetku",
+      "Máš tam nekěde po ruce seznam mých statků?"
+    )
+  )
+
   val exitOp:Array[String] = modifyCharset(
     Array(
       "Dnes nic nepotřebuji, chvátám na výpravu.",

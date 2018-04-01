@@ -9,7 +9,7 @@ import Texts._
 object Main {
   val dataFileManager = DataFileManager(s"data.tsv")
   var iterator:Iterator[Array[String]] = _
-  var estate: List[Property] = Nil
+  var estate: List[Property] = _
 
 
   def main(args: Array[String]): Unit = {
@@ -31,6 +31,7 @@ object Main {
       addEstateIntro,
       removeEstateIntro,
       modifyEstateIntro,
+      listEstateIntro,
       exitOp
     ))(
       readAnswer,
@@ -66,7 +67,8 @@ object Main {
         println("ADD ESTATE")
         val newEstate = EstateCreator.loadNewEstate
         dataFileManager.append(newEstate.toString)
-        println("VAS NOVY MAJETEK BYL ZAPSAN")
+        println("Váš nově zapsaný majetek:")
+        println(newEstate.toReadableString)
         endSubdialog()
       case 2 =>
         println("REMOVE ESTATE")
@@ -82,6 +84,13 @@ object Main {
         // todo: modify the estate
         endSubdialog()
       case 4 =>
+        println("Zde je celý soupis, Pane.")
+        separate()
+        estate.foreach( e =>
+          println(e.toReadableString)
+        )
+        endSubdialog()
+      case 5 =>
         println(randomText(farewells))
         programExit()
         System.exit(0)

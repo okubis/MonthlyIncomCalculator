@@ -1,4 +1,4 @@
-import util.{fixLength, getSignum, nroll}
+import util.{fixLength, getSignum, nroll,Separator}
 
 case class Property(
   what:String,
@@ -19,8 +19,33 @@ case class Property(
     else
       (for(_ <- 1 to amount) yield baseIncomePerUnitPerMonth + correction).sum
 
-  def toReadableString: String = s"what:$what\twhere:$where\tamount:$amount\tbaseIncomePerUnitPerMonth:$baseIncomePerUnitPerMonth\t" +
-    s"dice:$dice\tn:$n\tconst:$const\tincomeIsInPercents:$incomeIsPercentual\tadministrator:$admin\tnote:$note"
+  def toReadableString: String ={
+    val sb = new StringBuilder()
+    sb.append(fixLength("Majetek:"))
+    sb.append(what)
+    sb.append("\n")
+    sb.append(fixLength("Místo:"))
+    sb.append(where)
+    sb.append("\n")
+    sb.append(fixLength("Počet:"))
+    sb.append(amount)
+    sb.append("\n")
+    sb.append(fixLength("Spravuje:"))
+    sb.append(admin)
+    sb.append("\n")
+    sb.append(fixLength("Příjem:"))
+    if(incomeIsPercentual){
+      sb.append(s"$baseIncomePerUnitPerMonth * (1k100)")
+    }else{
+      sb.append(s"$baseIncomePerUnitPerMonth +/- (${n}k${dice} * $const)")
+    }
+    sb.append("\n")
+    sb.append(fixLength("Poznámka:"))
+    sb.append(note)
+    sb.append("\n")
+    sb.append(Separator)
+    sb.toString()
+  }
 
   override def toString: String = s"\n$what\t$where\t$amount\t$baseIncomePerUnitPerMonth\t$dice\t$n\t$const\t$incomeIsPercentual\t$admin\t$note"
 

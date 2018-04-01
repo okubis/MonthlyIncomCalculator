@@ -10,7 +10,6 @@ object EstateCreator {
   }
 
   private def loadEstateInput():Property = {
-    println(randomText(adminChoiceIntro))
     val listOfAdmins = estate.map(_.admin).distinct
     val reactions = dictionaryChoice(listOfAdmins) _
     val admin = multichoice(
