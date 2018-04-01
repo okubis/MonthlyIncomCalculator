@@ -87,7 +87,7 @@ package object util {
     r match {case Four | Six | Eight | Ten | Twelve | Twenty |Hundred => r; case _ => readDice }}
 
   def dictionaryChoice(dictionary: List[String])(choice:String):String = {
-    def isName(s:String) = s forall Character.isLetter
+    def isName(s:String) = s forall {c => Character.isLetter(c) || Character.isSpaceChar(c)}
     def isAnExistingAdmin(x: String) = (x forall Character.isDigit) && x.toInt >= 0 && x.toInt < dictionary.length
     choice match {
       case s if s.length == 0 || (!isAnExistingAdmin(s) && !isName(s)) => dictionaryChoice(dictionary)({println(randomText(wrongInput));readInput()})
