@@ -15,6 +15,12 @@ object Main {
   def main(args: Array[String]): Unit = {
     dataFileManager.initData()
     estate = dataFileManager.loadEstate
+    println("Používáním tohoto software se zavazujete k platbě 750 zlatých za každý vypočtený měsíc. \n" +
+      "Platba je splatná do poloviny následujícího měsíce do rukou Amrina, jeho Ženy, či správce vily, Kusaje.")
+    println(Separator)
+    println()
+    println()
+    println()
     println()
     println()
     println(Separator)

@@ -1,6 +1,6 @@
 import Texts.{wasteOp, wrongInput}
 import sun.plugin2.message.Message
-
+import java.text.Normalizer
 import scala.util.Random
 import scala.io.StdIn.{readLine => readInput}
 
@@ -43,8 +43,13 @@ package object util {
 
   val ProgramEnd= "######################## PROGRAM UKONCEN #############################"
 
+  def removeDiacritics(in: String) : String = {
+     // Separate accents from characters and then remove non-unicode characters
+     Normalizer.normalize(in, Normalizer.Form.NFD).replaceAll("\\p{M}", "")
+  }
+
   def randomText(textGroup: Array[String]):String = {
-    textGroup(dice.nextInt(textGroup.length))
+    removeDiacritics (textGroup(dice.nextInt(textGroup.length)))
   }
 
   def fixLength(s:String):String = {
